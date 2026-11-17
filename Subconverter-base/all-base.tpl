@@ -230,8 +230,8 @@ tcp-concurrent: true
 keep-alive-interval: 30
 unified-delay: true
 # Clash for Android
-clash-for-android:
-  ui-subtitle-pattern: '[\u4e00-\u9fa5]{2,4}'
+# clash-for-android:
+#   ui-subtitle-pattern: '[\u4e00-\u9fa5]{2,4}'
 
 {% endif %}
 {% if request.target == "surge" %}
