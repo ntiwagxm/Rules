@@ -75,9 +75,9 @@ dns:
   default-nameserver:
     - 223.5.5.5
     - 119.29.29.29
-    - 1.1.1.1
   enhanced-mode: fake-ip # or redir-host (not recommended)
-  fake-ip-range: 22.0.0.0/8
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-range6: 'fdfe:dcba:9876::1/64'
   fake-ip-filter-mode: blacklist
   fake-ip-filter:
     # === LAN ===
@@ -134,30 +134,33 @@ dns:
     - 'Mijia Cloud'
     - '+.mijia.tech'
   nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
-    - dhcp://system
-    - https://dns.alidns.com/dns-query
-    - https://doh.pub/dns-query
-    - https://dns.ipv6dns.com/dns-query
-    - https://rubyfish.cn/dns-query
-    - https://all.dns.mullvad.net/dns-query
-    - https://unfiltered.adguard-dns.com/dns-query
+    - 'https://dns.cloudflare.com/dns-query#RULES'
+    - 'https://dns.google/dns-query#RULES'
+  nameserver-policy:
+    geosite:cn,private:
+      - 'https://180.184.1.1/dns-query#DIRECT'
+      - 'https://doh.pub/dns-query#DIRECT'
+      - 'https://dns.alidns.com/dns-query#DIRECT'
   fallback:
-    - https://cloudflare-dns.com/dns-query
-    - https://dns.google/dns-query
-    - https://doh.dns.sb/dns-query
-    - https://dns.twnic.tw/dns-query
-    - https://doh.opendns.com/dns-query
-    - https://all.dns.mullvad.net/dns-query
-    - https://dns.quad9.net/dns-query
+    - 'https://1.1.1.1/dns-query'
+    - 'https://8.8.8.8/dns-query'
   fallback-filter:
-    ipcidr: # ips in these subnets will be considered polluted
-      - 0.0.0.0/32
-      - 100.64.0.0/10
-      - 127.0.0.0/8
-      - 240.0.0.0/4
-      - 255.255.255.255/32
+    geoip: true
+    geoip-code: 'CN'
+    ipcidr:
+      - '240.0.0.0/4'
+      - '0.0.0.0/32'
+    domain:
+      - '+.google.com'
+      - '+.facebook.com'
+      - '+.youtube.com'
+  proxy-server-nameserver:
+    - '119.29.29.29'
+    - '223.5.5.5'
+  direct-nameserver-follow-policy: true
+  direct-nameserver:
+    - 'https://doh.pub/dns-query'
+    - 'https://dns.alidns.com/dns-query'
   skip-domain:
     - "Mijia Cloud"
     - +.mijia.tech
