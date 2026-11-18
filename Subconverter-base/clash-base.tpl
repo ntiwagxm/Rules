@@ -7,7 +7,6 @@ find-process-mode: strict
 tcp-concurrent: true
 keep-alive-interval: 30
 unified-delay: true
-
 dns:
   enable: true
   listen: 0.0.0.0:1053
