@@ -27,7 +27,6 @@ dns:
     - '*.localdomain'
     - '*.localhost'
     - '*.test'
-    - '://apple.com'
     - '*.router.asus.com'
     - '*.linksys.com'
     - '*.linksyssmartwifi.com'
@@ -58,10 +57,6 @@ dns:
     - '*.time.edu.cn'
     - '*.ntp.org.cn'
     - '+.pool.ntp.org'
-    - '://tencent.com'
-    - '://qq.com'
-    - 'Mijia Cloud'
-    - '+.mijia.tech'
   default-nameserver:
     - 223.5.5.5
     - 119.29.29.29
