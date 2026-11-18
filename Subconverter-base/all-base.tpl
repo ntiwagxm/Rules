@@ -56,7 +56,6 @@ tun:
   - com.milink.service
   - com.xiaomi.mi_connect_service
   - com.xiaomi.mis
-#interface-name: WLAN
 dns:
   enable: true
   cache-algorithm: arc
@@ -67,7 +66,6 @@ dns:
 {% endif %}
 {% else %}
 ipv6: true
-#interface-name: WLAN
 dns:
   enable: true
   listen: 0.0.0.0:1053
