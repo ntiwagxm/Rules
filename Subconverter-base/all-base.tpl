@@ -145,20 +145,6 @@ dns:
     - https://rubyfish.cn/dns-query
     - https://all.dns.mullvad.net/dns-query
     - https://unfiltered.adguard-dns.com/dns-query
-#    - https://sm2.doh.pub/dns-query
-#    - https://dns.twnic.tw/dns-query
-#    - https://doh.opendns.com/dns-query
-#    - https://cloudflare-dns.com/dns-query
-#    - https://dns.google/dns-query
-#    - https://dns.quad9.net/dns-query
-#    - https://doh.qis.io/dns-query
-#    - https://doh.powerdns.com/dns-query
-#    - 101.101.101.101
-#    - tcp://119.29.107.85:9090
-#    - https://doh.sb/dns-query
-#    - tls://cloudflare-dns.com:853
-#    - tls://dns.google:853
-#    - tls://dns-tls.qis.io:853
   fallback:
     - https://cloudflare-dns.com/dns-query
     - https://dns.google/dns-query
@@ -167,40 +153,13 @@ dns:
     - https://doh.opendns.com/dns-query
     - https://all.dns.mullvad.net/dns-query
     - https://dns.quad9.net/dns-query
-#    - https://doh.sb/dns-query
-#    - https://doh.qis.io/dns-query
-#    - https://unfiltered.adguard-dns.com/dns-query
-#    - tcp://1.1.1.1
-#    - https://dns.alidns.com/dns-query
-#    - tls://cloudflare-dns.com:853
-#    - tls://dns.google:853
-#    - tls://dns-tls.qis.io:853
   fallback-filter:
-#    geoip: true # default
-#    geoip-code: CN
-#    geosite:
-#        - gfw
     ipcidr: # ips in these subnets will be considered polluted
       - 0.0.0.0/32
       - 100.64.0.0/10
       - 127.0.0.0/8
       - 240.0.0.0/4
       - 255.255.255.255/32
-#sniffer:
-#  enable: true
-#  force-dns-mapping: true
-#  parse-pure-ip: true
-#  override-destination: true
-#  sniff:
-#    HTTP:
-#      ports: [80, 8080-8880]
-#      override-destination: true
-#    TLS:
-#      ports: [443, 8443]
-#    QUIC:
-#      ports: [443, 8443]
-#  force-domain:
-#    - +.v2ex.com
   skip-domain:
     - "Mijia Cloud"
     - +.mijia.tech
@@ -208,10 +167,6 @@ find-process-mode: strict
 tcp-concurrent: true
 keep-alive-interval: 30
 unified-delay: true
-# Clash for Android
-# clash-for-android:
-#   ui-subtitle-pattern: '[\u4e00-\u9fa5]{2,4}'
-
 {% endif %}
 {% if request.target == "surge" %}
 
