@@ -1,30 +1,11 @@
 {% if request.target == "clash" or request.target == "clashr" %}
-mixed-port: {{ default(global.clash.mixed_port, "18888") }}
-#redir-port: {{ default(global.clash.redir_port, "18890") }}
-#authentication:
-#  - "firefly:WJ960923"
 allow-lan: {{ default(global.clash.allow_lan, "true") }}
 bind-address: '*'
 mode: rule
 log-level: {{ default(global.clash.log_level, "info") }}
-external-controller: {{ default(global.clash.api_port, "0.0.0.0:19090")}}
-external-ui: ui
-#external-ui-name: zash
-external-ui-url: 'https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip'
-secret: ''
-routing-mark: {{ default(global.clash.routing_mark, "16666")}}
-experimental:
-  ignore-resolve-fail: true
-  sniff-tls-sni: true
-  udp-fallback-match: true
-profile:
-  store-fake-ip: true
-  store-selected: true
-  tracing: true
 {% if exists("request.clash.dns") %}
 {% if request.clash.dns == "tap" %}
 ipv6: true
-#interface-name: WLAN
 dns:
   enable: true
   listen: 0.0.0.0:53
@@ -32,12 +13,10 @@ dns:
 {% endif %}
 {% if request.clash.dns == "win-tun" or request.clash.dns == "linux-tun" %}
 ipv6: true
-#interface-name: WLAN # conflict with `tun.auto-detect-interface`
 tun:
   enable: true
   stack: system # or gvisor
   auto-route: true # manage `ip route` and `ip rules`
-#  auto-redir: true # manage nftable REDIRECT
   auto-detect-interface: true # auto detect interface, conflict with `interface-name`
   dns-hijack:
     - 22.0.0.1:53 # when `fake-ip-range` is 198.18.0.1/16, should hijack 198.18.0.2:53
